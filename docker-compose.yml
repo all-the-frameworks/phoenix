@@ -3,7 +3,7 @@ services:
   app:
     build: .
     volumes:
-      - .:/app:cached
+      - .:/app
     depends_on:
       - postgres
     environment:

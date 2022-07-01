@@ -1,4 +1,5 @@
 defmodule ProjectManagerWeb.Telemetry do
+  @moduledoc "Does telemetry stuff"
   use Supervisor
   import Telemetry.Metrics
 

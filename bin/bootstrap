@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+mkdir -p priv/plts
+mix local.rebar --force
+mix local.hex --force
+mix deps.get
+mix deps.compile
+mix dialyzer --plt
+mix ecto.create

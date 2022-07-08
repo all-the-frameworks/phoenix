@@ -1,4 +1,8 @@
 defmodule ProjectManager.Projects.Project do
+  @moduledoc """
+  Ecto model representing a project
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 

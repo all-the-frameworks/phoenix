@@ -17,6 +17,7 @@ defmodule ProjectManagerWeb.Router do
   scope "/", ProjectManagerWeb do
     pipe_through :browser
 
+    resources "/projects", ProjectController
     get "/", PageController, :index
   end
 

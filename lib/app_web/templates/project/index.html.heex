@@ -1,0 +1,17 @@
+<h1>Projects</h1>
+
+<div class="tiles">
+  <%= for project <- @projects do %>
+    <% id_attribute = %{"id" => "project-#{project.id}"} %>
+    <div class="tile project" {id_attribute}>
+      <h2><%= project.name %></h2>
+      <ul class="metadata">
+        <li><strong>Created:</strong> <%= format_time(project.inserted_at) %></li>
+        <li><strong>Last Update:</strong> <%= format_time(project.updated_at) %></li>
+        <li><a href="#" class="button button-outline danger">Delete</a></li>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<span><%= link "New Project", to: Routes.project_path(@conn, :new) %></span>

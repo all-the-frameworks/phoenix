@@ -11,7 +11,7 @@ defmodule ProjectManager.ProjectsFixtures do
     {:ok, project} =
       attrs
       |> Enum.into(%{
-        name: "some name"
+        name: "My exciting project"
       })
       |> ProjectManager.Projects.create_project()
 

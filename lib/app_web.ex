@@ -98,6 +98,11 @@ defmodule ProjectManagerWeb do
       import ProjectManagerWeb.ErrorHelpers
       import ProjectManagerWeb.Gettext
       alias ProjectManagerWeb.Router.Helpers, as: Routes
+
+      import Plug.CSRFProtection,
+        only: [get_csrf_token_for: 1, get_csrf_token: 0]
+
+      import ProjectManagerWeb.ViewHelpers
     end
   end
 

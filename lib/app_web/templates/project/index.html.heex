@@ -4,11 +4,19 @@
   <%= for project <- @projects do %>
     <% id_attribute = %{"id" => "project-#{project.id}"} %>
     <div class="tile project" {id_attribute}>
-      <h2><%= project.name %></h2>
+      <h2><%= link project.name, to: Routes.project_path(@conn, :show, project) %></h2>
       <ul class="metadata">
         <li><strong>Created:</strong> <%= format_time(project.inserted_at) %></li>
         <li><strong>Last Update:</strong> <%= format_time(project.updated_at) %></li>
-        <li><a href="#" class="button button-outline danger">Delete</a></li>
+        <li>
+          <% target = Routes.project_path(@conn, :delete, project) %>
+          <form method="post" action={target} %>
+            <input type="hidden" name="_csrf_token" value={get_csrf_token_for(target)} />
+            <input type="hidden" name="id" value={project.id} />
+            <input type="hidden" name="_method" value="delete" />
+            <button class="button-outline danger" type="submit">Delete</button>
+          </form>
+        </li>
       </ul>
     </div>
   <% end %>
